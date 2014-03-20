@@ -316,9 +316,14 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
           width -= margin.left + margin.right;
           height -=  margin.top + margin.bottom;
 
-      var x = d3.scale.ordinal()
+      var x;
+      if(!config.xAxis.scale){
+        x = d3.scale.ordinal()
             .domain(points.map(function(d) { return d.x; }))
             .rangeRoundBands([0, width]);
+      } else {
+        x = config.xAxis.scale;
+      }
 
       var y = d3.scale.linear()
           .range([height, 10]);
