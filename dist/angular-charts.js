@@ -298,7 +298,7 @@ angular.module('angularCharts').directive('acChart', [
             width
           ]);
         } else {
-          x = config.xAxis.scale;
+          x = config.xAxis.scale(points);
         }
         var y = d3.scale.linear().range([
             height,

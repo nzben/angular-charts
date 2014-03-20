@@ -322,7 +322,7 @@ angular.module('angularCharts').directive('acChart', function($templateCache, $c
             .domain(points.map(function(d) { return d.x; }))
             .rangeRoundBands([0, width]);
       } else {
-        x = config.xAxis.scale;
+        x = config.xAxis.scale(points);
       }
 
       var y = d3.scale.linear()
